@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { ExampleComponent } from '../shared/components/example/example.component';
+import { HomePageComponent } from '../shared/components/home-page/home-page.component';
+
 
 export const routes: Routes = [
-    {path:'',component:ExampleComponent}
+    {path:'',component:HomePageComponent}
 ];

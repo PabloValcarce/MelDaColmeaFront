@@ -1,0 +1,11 @@
+<nav id="navbar">
+    <div class="nav-title">Mel da Colmea</div>
+    <div class="menu-toggle" (click)="toggleMenu()">
+        &#9776;
+    </div>
+    <ul [ngClass]="{'show': isMenuOpen}">
+        <li><a href="">Inicio</a></li>
+        <li><a href="#">Sobre Nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>
+</nav>
