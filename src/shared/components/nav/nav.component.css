@@ -21,31 +21,36 @@ nav {
 }
 
 .nav-title {
-    color: white;                  /* Color del texto */
-    font-size: 24px;              /* Aumentar el tamaño de la fuente */
-    font-weight: bold;             /* Hacer el texto más grueso */
-    width: 55%;                   /* Mantener el ancho */
-    text-align: left;             /* Alinear a la izquierda */
-    padding: 10px 0;              /* Añadir espaciado arriba y abajo */
-    letter-spacing: 1px;          /* Espaciado entre letras */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 50%;
+    text-align: left;
+    padding: 10px 0;
+    letter-spacing: 1px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.nav-login{
+    cursor: pointer;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
-    width: 45%;
+    width: 40%;
     opacity: 1;
     transition: opacity 0.5s ease;
 }
+
 nav ul li {
     padding: 10px;
-    font-size: 18px;
-}
-nav a {
     color: white;
     text-decoration: none;
+    cursor:pointer;
+    font-size: 18px;
 }
 
 .menu-toggle {
@@ -56,6 +61,9 @@ nav a {
 }
 
 @media (max-width: 1000px) {
+    .nav-title{
+        width: 80%;
+    }
     nav ul {
         display: flex;
         flex-direction: column;

@@ -1,0 +1,35 @@
+<app-nav></app-nav>
+<div class="contenedor__todo">
+    <div class="caja__trasera">
+        <div class="caja__trasera-login" (click)="toggleView('login')">
+            <h3>¿Ya tienes una cuenta?</h3>
+            <p>Inicia sesión para poder comprar en la página</p>
+            <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+        </div>
+        <div class="caja__trasera-register" (click)="toggleView('register')">
+            <h3>¿Aún no tienes una cuenta?</h3>
+            <p>Regístrate para que puedas comprar</p>
+            <button id="btn__registrarse">Regístrarse</button>
+        </div>
+    </div>
+    <div class="contenedor__login-register" 
+         [ngClass]="{
+             'login-view': isLoginView, 
+             'register-view': !isLoginView
+         }">
+        <form *ngIf="isLoginView" class="active"(ngSubmit)="onLogin()">
+            <h2>Iniciar Sesión</h2>
+            <input required name="email" type="email" ngModel placeholder="Correo Electrónico">
+            <input required name="password" type="password" ngModel placeholder="Contraseña">
+            <button type="submit">Entrar</button>
+        </form>
+        <form *ngIf="!isLoginView" class="active" (ngSubmit)="onRegister()">
+            <h2>Regístrarse</h2>
+            <input required name="username" type="text" ngModel placeholder="Nombre de Usuario">
+            <input required name="email" type="email" ngModel placeholder="Correo Electrónico">
+            <input required name="password" type="password" ngModel placeholder="Contraseña">
+            <input required name="cpassword" type="password" ngModel placeholder="Repite Contraseña">
+            <button type="submit">Regístrarse</button>
+        </form>
+    </div>
+</div>
