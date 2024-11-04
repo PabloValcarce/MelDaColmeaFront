@@ -30,9 +30,6 @@ nav {
     padding: 10px 0;
     letter-spacing: 1px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.nav-login{
     cursor: pointer;
 }
 
@@ -47,10 +44,10 @@ nav ul {
 
 nav ul li {
     padding: 10px;
+    font-size: 18px;
     color: white;
     text-decoration: none;
-    cursor:pointer;
-    font-size: 18px;
+    cursor:pointer
 }
 
 .menu-toggle {

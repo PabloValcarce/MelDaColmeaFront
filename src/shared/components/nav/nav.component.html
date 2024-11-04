@@ -1,12 +1,12 @@
 <nav id="navbar">
-    <div routerLink="/"class="nav-title">Mel da Colmea</div>
+    <div class="nav-title" routerLink="/">Mel da Colmea</div>
     <div class="menu-toggle" (click)="toggleMenu()">
         &#9776;
     </div>
     <ul [ngClass]="{'show': isMenuOpen}">
         <li routerLink="/">Inicio</li>
-        <li routerLink="/">Sobre Nosotros</li>
-        <li routerLink="/">Contacto</li>
+        <li routerLink="">Sobre Nosotros</li>
+        <li routerLink="/contact">Contacto</li>
     </ul>
     <div routerLink="/login" class="nav-login">
         <i style="color: white;" class="fas fa-user"></i>
