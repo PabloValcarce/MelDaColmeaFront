@@ -21,13 +21,13 @@
     display: flex;
     border-radius: 20px;
     justify-content: center;
-    backdrop-filter: blur(10px);
-    background-color: var(--nav-color);
+    opacity: 90%;
+    background-color: #FDB300;
 }
 
 .caja__trasera div {
     margin: 100px 40px;
-    color: white;
+    color: #3A362B;
     transition: all 500ms;
 }
 
