@@ -17,8 +17,8 @@ import { NavComponent } from '../nav/nav.component';
 export class LoginComponent implements AfterViewInit {
   isLoginView: boolean = true;
   isMobile: boolean = false;
-  showLoginBox:boolean = true;
-  showRegisterBox:boolean = false;
+  showLoginBox: boolean = true;
+  showRegisterBox: boolean = false;
 
   // Definir las vistas de los formularios y contenedores con ViewChild
   @ViewChild('formularioLogin') formulario_login!: ElementRef;
@@ -30,13 +30,13 @@ export class LoginComponent implements AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private renderer: Renderer2
-  ) {}
+  ) { }
 
   ngOnInit() {
     // Establecer estilos de fondo en el body
     if (isPlatformBrowser(this.platformId)) {
       this.isMobile = window.innerWidth <= 850;
-      this.renderer.setStyle(document.body, 'background-color', '#121212');
+      // this.renderer.setStyle(document.body, 'background-color', '#121212');
       this.renderer.setStyle(document.body, 'height', '70%');
     }
     this.updateLayout();
@@ -47,15 +47,17 @@ export class LoginComponent implements AfterViewInit {
   }
   // Actualiza el estado basado en el tamaño de la ventana
   updateLayout() {
-    this.isMobile = window.innerWidth <= 850;
-    if (!this.isMobile) {
-      // Si estamos en una pantalla grande, mostramos ambas cajas
-      this.showLoginBox = true;
-      this.showRegisterBox = true;
-    } else {
-      // Si estamos en una pantalla pequeña, mostramos solo la caja de login por defecto
-      this.showLoginBox = true;
-      this.showRegisterBox = false;
+    if (isPlatformBrowser(this.platformId)) {
+      this.isMobile = window.innerWidth <= 850;
+      if (!this.isMobile) {
+        // Si estamos en una pantalla grande, mostramos ambas cajas
+        this.showLoginBox = true;
+        this.showRegisterBox = true;
+      } else {
+        // Si estamos en una pantalla pequeña, mostramos solo la caja de login por defecto
+        this.showLoginBox = true;
+        this.showRegisterBox = false;
+      }
     }
   }
   ngAfterViewInit() {

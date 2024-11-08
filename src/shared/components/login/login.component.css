@@ -1,9 +1,8 @@
 .new-background {
     background-color: lightblue;
 }
-
 .contenedor__todo {
-    background-image: url(../../assets/panel.jpg);
+    background-image: url(/assets/panel.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -13,7 +12,6 @@
     margin: auto;
     margin-top: calc(50vh - 200px);
 }
-
 .caja__trasera {
     width: 100%;
     position: relative;
@@ -22,7 +20,7 @@
     border-radius: 20px;
     justify-content: center;
     opacity: 90%;
-    background-color: #FDB300;
+    background-color: var(--amarillo);
 }
 
 .caja__trasera div {
@@ -77,7 +75,7 @@
 .contenedor__login-register form {
     width: 100%;
     padding: 80px 20px;
-    background-image: url(../../assets/panel.jpg);
+    background-image: url(/assets/panel.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

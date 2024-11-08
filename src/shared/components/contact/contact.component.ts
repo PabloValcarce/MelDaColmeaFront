@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NavComponent } from '../nav/nav.component';
 
@@ -22,6 +22,17 @@ export class ContactComponent {
     subject: '',
     message: ''
   };
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private renderer: Renderer2
+  ){}
+  ngOnInit() {
+    // Establecer estilos de fondo en el body
+    if (isPlatformBrowser(this.platformId)) {
+      this.renderer.setStyle(document.body, 'background-image', "url(assets/contact2.jpg)");
+      this.renderer.setStyle(document.body, 'height', '70%');
+    }
+  }
 
   // Método que se ejecuta cuando el formulario se envía
   onSubmit(): void {

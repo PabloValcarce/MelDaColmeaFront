@@ -26,7 +26,7 @@ export class NavComponent {
         if (isPlatformBrowser(this.platformId)) {
             const navbar = document.getElementById('navbar');
             if (navbar) {
-                navbar.style.backgroundColor = window.scrollY > 50 ? 'rgba(51, 51, 51, 1)' : 'rgba(51, 51, 51, 0)';
+                navbar.style.backgroundColor = window.scrollY > 50 ? 'rgba(58, 54, 43, 1)' : 'rgba(58, 54, 43, 0.75)';
             }
         }
     }
