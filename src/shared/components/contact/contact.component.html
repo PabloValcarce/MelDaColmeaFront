@@ -14,23 +14,23 @@
       <a href="#"><i class="fa-brands fa-linkedin"></i></a>
     </div>
   </div>
-  <form (ngSubmit)="onSubmit()">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="input-box">
-      <input type="text" placeholder="Nombre y apellido" [(ngModel)]="contactForm.name" name="name" required>
+      <!-- Vinculamos el campo 'name' con el formControlName -->
+      <input type="text" placeholder="Nombre y apellido" formControlName="name" required>
       <i class="fa-solid fa-user"></i>
     </div>
     <div class="input-box">
-      <input type="email" placeholder="Correo electrónico" [(ngModel)]="contactForm.email" name="email" required>
+      <input type="email" placeholder="Correo electrónico" formControlName="email" required>
       <i class="fa-solid fa-envelope"></i>
     </div>
     <div class="input-box">
-      <input type="text" placeholder="Asunto" [(ngModel)]="contactForm.subject" name="subject" required>
+      <input type="text" placeholder="Asunto" formControlName="subject" required>
       <i class="fa-solid fa-pen-to-square"></i>
     </div>
     <div class="input-box">
-      <textarea placeholder="Escribe tu mensaje..." [(ngModel)]="contactForm.message" name="message"
-        required></textarea>
+      <textarea placeholder="Escribe tu mensaje..." formControlName="message" required></textarea>
     </div>
-    <button>Enviar mensaje</button>
+    <button type="submit" [disabled]="contactForm.invalid">Enviar mensaje</button>
   </form>
 </div>
