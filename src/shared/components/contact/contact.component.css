@@ -1,3 +1,30 @@
+/* Estilo para campos con error */
+.input-error input,
+.input-error textarea {
+    border: 2px solid red;
+    /* Borde rojo para los campos inválidos */
+    background-color: #fdd;
+    /* Fondo rojo claro */
+}
+
+.input-error input:focus,
+.input-error textarea:focus {
+    border-color: darkred;
+    /* Cambio de borde cuando el campo está enfocado */
+}
+
+.input-error i {
+    color: red;
+    /* Icono en rojo si el campo tiene error */
+}
+
+.error-message {
+    color: red;
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 5px;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -154,6 +181,13 @@ form>button {
 form>button:hover,
 .links>a:hover {
     background: var(--marron);
+    transform: scale(1.2);
+    color: var(--amarillo);
+}
+
+form>button:hover,
+.links>a:hover>i {
+    color: var(--amarillo);
 }
 
 @keyframes shake {
