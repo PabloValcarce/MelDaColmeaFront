@@ -181,10 +181,11 @@ form>button {
 form>button:hover,
 .links>a:hover {
     background: var(--marron);
-    transform: scale(1.2);
     color: var(--amarillo);
 }
-
+.links>a:hover>i{
+    transform: scale(1.2);
+}
 form>button:hover,
 .links>a:hover>i {
     color: var(--amarillo);
