@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { LoginComponent } from '../login/login.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ContactComponent } from '../contact/contact.component';
@@ -19,5 +19,16 @@ import { ContactComponent } from '../contact/contact.component';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object
+    , private renderer: Renderer2) {
+
+  }
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.renderer.setStyle(document.body, 'background-color', 'black')
+    }
+  }
 
 }
