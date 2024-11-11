@@ -26,9 +26,30 @@ export class HomePageComponent {
 
   }
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.renderer.setStyle(document.body, 'background-color', 'black')
-    }
+    this.setBackground();
+  }
+
+  setBackground(): void {
+    // Crear un div que servirá como fondo
+    const backgroundDiv = this.renderer.createElement('div');
+    
+    // Establecer estilos del fondo en el div
+    this.renderer.setStyle(backgroundDiv, 'position', 'absolute');
+    this.renderer.setStyle(backgroundDiv, 'top', '0');
+    this.renderer.setStyle(backgroundDiv, 'left', '0');
+    this.renderer.setStyle(backgroundDiv, 'right', '0');
+    this.renderer.setStyle(backgroundDiv, 'bottom', '0');
+    this.renderer.setStyle(backgroundDiv, 'background-image', 'url(assets/hexagono.png)');
+    this.renderer.setStyle(backgroundDiv, 'background-repeat', 'no-repeat');
+    this.renderer.setStyle(backgroundDiv, 'background-size', 'cover');
+    this.renderer.setStyle(backgroundDiv, 'background-position', 'center');
+    this.renderer.setStyle(backgroundDiv, 'transform', 'scaleX(-1)');  // Voltear el fondo horizontalmente
+    this.renderer.setStyle(backgroundDiv, 'z-index', '-1');  // Colocar el fondo detrás del contenido
+    this.renderer.setStyle(backgroundDiv, 'height', '100vh');  // Asegurarse de que el fondo cubra toda la pantalla
+    this.renderer.setStyle(backgroundDiv, 'width', '100%');  // Asegurarse de que el fondo cubra toda la pantalla
+
+    // Agregar el div como hijo del body
+    this.renderer.appendChild(document.body, backgroundDiv);
   }
 
 }
