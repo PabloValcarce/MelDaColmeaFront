@@ -3,15 +3,17 @@ import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavComponent } from '../nav/nav.component';
 import { ContactService} from '../../services/contact-service.service';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [
     CommonModule,
-    NavComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NavComponent,
+    FooterComponent,
 
   ],
   templateUrl: './contact.component.html',

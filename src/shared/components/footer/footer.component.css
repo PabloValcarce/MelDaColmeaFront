@@ -1,0 +1,84 @@
+:host {
+    display: block;
+}
+
+#footer {
+    width: 100%;
+    height: 20vh;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(58, 54, 43, 1);
+    text-align: center;
+    opacity: 0;
+    /* Comienza invisible */
+    transition: all 0.75s ease;
+    /* Animación suave */
+}
+#footer.visible {
+    opacity: 1;
+    bottom: 0;
+}
+
+.footer {
+    background-color: var(--marron);
+    /* Usamos el color marrón para el fondo */
+    color: var(--amarillo);
+    /* El texto en blanco para resaltar */
+    padding: 30px 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-info p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.footer-links a {
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    background: var(--amarillo);
+    text-align: center;
+    transition: .1s;
+}
+
+.footer-links>a>i {
+    color: var(--marron);
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.footer-links a:hover {
+    background: var(--amarillo);
+    color: var(--marron);
+    transform: scale(1.2);
+}
+
+.footer-info {
+    flex: 1;
+}
+
+.footer-links {
+    flex: 1;
+    text-align: center;
+}
