@@ -2,8 +2,9 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavComponent } from '../nav/nav.component';
-import { ContactService} from '../../services/contact-service.service';
+import { ContactService } from '../../services/contact-service.service';
 import { FooterComponent } from '../footer/footer.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -21,6 +22,17 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class ContactComponent {
   contactForm!: FormGroup;
+  Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 4000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -32,7 +44,7 @@ export class ContactComponent {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      subject:['',[Validators.required]],
+      subject: ['', [Validators.required]],
       message: ['', [Validators.required]]
     });
 
@@ -46,18 +58,37 @@ export class ContactComponent {
     }
   }
 
-  // Método que se ejecuta cuando el formulario se envía
   onSubmit(): void {
     if (this.contactForm.valid) {
+
       const formData = this.contactForm.value;
+
+      const loading = Swal.fire({
+        title: 'Procesando...',
+        text: 'Estamos enviando tu mensaje, por favor espera.',
+        icon: 'info',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading(); // Mostrar el spinner de carga
+        }
+      })
       this.contactService.sendContact(formData).subscribe(
         response => {
           console.log('Correo enviado con éxito', response);
-          // Mostrar un mensaje de éxito
+          this.Toast.fire({
+            icon: "success",
+            title: "Mensaje enviado con éxito"
+          })
+          this.contactForm.reset();
+
         },
         error => {
+          this.Toast.fire({
+            icon: "error",
+            title: "Error al enviar el mensaje"
+          })
           console.error('Error al enviar el correo', error);
-          // Mostrar un mensaje de error
         }
       );
     }

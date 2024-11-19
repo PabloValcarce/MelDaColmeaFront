@@ -1,21 +1,26 @@
-/* Estilo para campos con error */
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+app-footer {
+    margin-top: auto;
+}
+
 .input-error input,
 .input-error textarea {
     border: 2px solid red;
-    /* Borde rojo para los campos inválidos */
     background-color: #fdd;
-    /* Fondo rojo claro */
 }
 
 .input-error input:focus,
 .input-error textarea:focus {
     border-color: darkred;
-    /* Cambio de borde cuando el campo está enfocado */
 }
 
 .input-error i {
     color: red;
-    /* Icono en rojo si el campo tiene error */
 }
 
 .error-message {
@@ -44,6 +49,7 @@
     font-size: bolder;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     gap: 2%;
 }
 
@@ -185,9 +191,11 @@ form>button:hover,
     background: var(--marron);
     color: var(--amarillo);
 }
-.links>a:hover>i{
+
+.links>a:hover>i {
     transform: scale(1.2);
 }
+
 form>button:hover,
 .links>a:hover>i {
     color: var(--amarillo);
@@ -222,7 +230,7 @@ form>button:hover,
         margin: 0 auto;
         margin-top: 70px;
         width: 100vw;
-        height: 50vh;
+        height: 80vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -231,37 +239,52 @@ form>button:hover,
 
     .box-info {
         width: 80vw;
-        gap: 5%;
-        display: grid;  
-        margin-bottom: 20px;          
-        justify-content: center;        /* Activar CSS Grid */
-        grid-template-columns: 1fr 1fr;        /* Una sola columna por defecto */
-        grid-template-rows: auto auto; /* Tres filas: una para el título, una para la información de contacto, y una para los enlaces */
-      }
-      
-      .item {                   /* Espaciado interno */
-        text-align: center;                /* Centrar el texto */
-        border-radius: 5px;               /* Bordes redondeados */
-      }
-      
-      .item1 {
-        grid-column: span 2;                   /* El título ocupa toda la primera columna */
-        font-size: 2rem;                  /* Aumentar el tamaño de fuente para el título */
-        font-weight: bold;                /* Negrita para el título */
-      }
-      
-      .item2 {
-        grid-column: 1;                   /* La información de contacto ocupa la columna 1 */
-        font-size: 1rem;                  /* Tamaño de fuente más pequeño */
-      }
-      
-      .item3 {
-        grid-column: 2;                   /* Los enlaces sociales ocupan la columna 1 */
-        display: flex;                    /* Usamos flexbox para los enlaces */
-        justify-content: center;          /* Centrar los enlaces */
-      }
-    .links{
-        margin:0 auto;
+        gap: 10px;
+        display: grid;
+        margin-bottom: 20px;
+        justify-content: center;
+        /* Activar CSS Grid */
+        grid-template-columns: 1fr 1fr;
+        /* Una sola columna por defecto */
+        grid-template-rows: auto auto;
+        /* Tres filas: una para el título, una para la información de contacto, y una para los enlaces */
+    }
+
+    .item {
+        /* Espaciado interno */
+        text-align: center;
+        /* Centrar el texto */
+        border-radius: 5px;
+        /* Bordes redondeados */
+    }
+
+    .item1 {
+        grid-column: span 2;
+        /* El título ocupa toda la primera columna */
+        font-size: 2rem;
+        /* Aumentar el tamaño de fuente para el título */
+        font-weight: bold;
+        /* Negrita para el título */
+    }
+
+    .item2 {
+        grid-column: 1;
+        /* La información de contacto ocupa la columna 1 */
+        font-size: 1rem;
+        /* Tamaño de fuente más pequeño */
+    }
+
+    .item3 {
+        grid-column: 2;
+        /* Los enlaces sociales ocupan la columna 1 */
+        display: flex;
+        /* Usamos flexbox para los enlaces */
+        justify-content: center;
+        /* Centrar los enlaces */
+    }
+
+    .links {
+        margin: 0 auto;
         width: 40%;
         height: 40%;
         display: grid;
@@ -282,14 +305,54 @@ form>button:hover,
         animation: none;
 
     }
-    form{
+
+    form {
         align-items: center;
         width: 70vw;
     }
-    form> .input-box{
+
+    form>.input-box {
         width: calc(90vw - 25px);
     }
-    form > button{
+
+    form>button {
         width: calc(90vw - 25px);
+    }
+}
+
+@media (max-width: 590px) {
+    app-footer {
+        margin-top: 100px;
+
+    }
+    .box-info > h1{
+        font-size: 20px
+    }
+    .data{
+        gap: 5px;
+    }
+    
+}
+
+@media (max-width: 530px) {
+    app-footer {
+        margin-top: 150px;
+    }
+    .box-info{
+        display: flex;
+        flex-direction: column;
+    }
+    .box-info >h1{
+        line-height: 20px;
+    }
+}
+@media (max-width: 400px) {
+    app-footer {
+        margin-top: 200px;
+    }
+}
+@media (max-width: 360px) {
+    app-footer {
+        margin-top: 250px;
     }
 }

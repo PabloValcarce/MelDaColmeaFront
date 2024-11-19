@@ -16,17 +16,19 @@ import { ContactComponent } from '../contact/contact.component';
     ContactComponent
   ],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css'
+  styleUrls: ['./home-page.component.css']  // Cambié styleUrl a styleUrls
 })
 export class HomePageComponent {
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object
-    , private renderer: Renderer2) {
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private renderer: Renderer2
+  ) {}
 
-  }
   ngOnInit(): void {
-    this.setBackground();
+    if (isPlatformBrowser(this.platformId)) {
+      this.setBackground();
+    }
   }
 
   setBackground(): void {
@@ -51,5 +53,4 @@ export class HomePageComponent {
     // Agregar el div como hijo del body
     this.renderer.appendChild(document.body, backgroundDiv);
   }
-
 }
