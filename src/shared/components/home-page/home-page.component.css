@@ -5,14 +5,21 @@
 }
 
 .presentation {
+    background-image: url("/assets/hexagono.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    top:0;
+    left: 0;
+    right: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: space-between;
     margin-top: 70px;
     margin: auto;
-    width: 90vw;
-    height: calc(100vh - 70px);
+    height: 100vh;
     overflow: hidden; 
 }
 
@@ -91,4 +98,30 @@
 
 .texto .btn:hover {
     background-color: var(--amarillo); 
+}
+
+
+/* Informacion */
+
+.info1{
+    background-image: url("/assets/hexagono2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 70px;
+    margin: auto;
+    height: 100vh;
+    overflow: hidden; 
+}
+.texto1{
+    color:var(--amarillo);
+    width: 50%;
+    margin:0 auto;
+}
+.img1{
+    
 }
