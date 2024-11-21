@@ -101,27 +101,124 @@
 }
 
 
-/* Informacion */
-
-.info1{
-    background-image: url("/assets/hexagono2.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 70px;
-    margin: auto;
-    height: 100vh;
-    overflow: hidden; 
-}
-.texto1{
-    color:var(--amarillo);
-    width: 50%;
-    margin:0 auto;
-}
-.img1{
-    
-}
+/* Estilos para el contenedor .img1 */
+.img1 {
+    width: 48%;
+    padding: 20px;
+    background-color:var(--marron);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    opacity: 0;
+    animation: fadeInLeft 1s ease-out forwards;
+    animation-delay: 0.22s;
+    display: inline-block; /* Hace que los divs estén en línea */
+    margin-right: 4%;
+  }
+  
+  /* Contenedor de la imagen */
+  .image1-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+  }
+  
+  /* Imagen flotante a la izquierda */
+  .imgage1-container > img{
+    float: left;
+    width: 100%;
+    max-width: 200px; /* Ajusta el tamaño de la imagen */
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Animación de entrada */
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Estilos para el contenedor .info1 */
+  .info1 {
+    width: 48%;
+    padding: 20px;
+    background-color: var(--marron);
+    color: var(--amarillo);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    opacity: 0;
+    animation: fadeInRight 1s ease-out forwards;
+    animation-delay: 0.22s;
+    display: inline-block; /* Hace que los divs estén en línea */
+  }
+  
+  /* Animación de entrada para info1 */
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Estilos del título en .info1 */
+  .info1 h1 {
+    font-size: 24px;
+    color: var(--amarillo);
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos del párrafo en .info1 */
+  .info1 p {
+    font-size: 14px;
+    color: var(--amarillo);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .img1, .info1 {
+      width: 100%;
+      padding: 15px;
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  
+    .img-float-left {
+      max-width: 100%;
+      width: 100%;
+      margin-right: 0;
+    }
+  
+    .span-new, .span-free {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  
+    .info1 h1 {
+      font-size: 20px;
+    }
+  
+    .info1 p {
+      font-size: 13px;
+    }
+  
+    .circle {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px;
+    }
+  }
+  

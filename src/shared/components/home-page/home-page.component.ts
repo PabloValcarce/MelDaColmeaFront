@@ -1,9 +1,10 @@
-import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { Component, inject, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { LoginComponent } from '../login/login.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ContactComponent } from '../contact/contact.component';
+import { TranslateModule, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-page',
@@ -13,11 +14,19 @@ import { ContactComponent } from '../contact/contact.component';
     NavComponent,
     LoginComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    TranslateModule
   ],
+  providers:[TranslateService],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']  // Cambié styleUrl a styleUrls
 })
 export class HomePageComponent {
+  translate:TranslateService = inject(TranslateService);
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
+  }
+  
 
 }
