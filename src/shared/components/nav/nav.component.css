@@ -10,7 +10,7 @@ nav {
     left: 0;
     right: 0;
     height: 70px;
-    background-color:rgba(58, 54, 43, 0.75);
+    background-color: rgba(58, 54, 43, 0.75);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,7 +21,7 @@ nav {
 }
 
 .nav-title {
-    color:var(--amarillo);
+    color: var(--amarillo);
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
@@ -32,8 +32,9 @@ nav {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
-.nav-login{
-    cursor:pointer;
+
+.nav-login {
+    cursor: pointer;
 }
 
 nav ul {
@@ -50,7 +51,7 @@ nav ul li {
     font-size: 18px;
     color: var(--amarillo);
     text-decoration: none;
-    cursor:pointer
+    cursor: pointer
 }
 
 .menu-toggle {
@@ -60,10 +61,57 @@ nav ul li {
     cursor: pointer;
 }
 
+
+.language-selector {
+    position: relative;
+    display: inline-block;
+}
+
+.language-selector button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.language-selector img {
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 35px; 
+    left: -10px;
+    background-color: rgba(51, 51, 51, 0.9);
+    border-radius: 5px;
+    padding: 5px 0;
+    z-index: 2000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: auto;
+}
+
+.language-dropdown div {
+    padding: 8px 10px;
+    cursor: pointer;
+    color: var(--amarillo);
+    font-size: 16px;
+}
+
+.language-dropdown div:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-selector.open .language-dropdown {
+    display: block;
+}
 @media (max-width: 1000px) {
-    .nav-title{
+    .nav-title {
         width: 80%;
     }
+
     nav ul {
         text-align: center;
         display: flex;

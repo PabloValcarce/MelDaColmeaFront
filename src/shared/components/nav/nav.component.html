@@ -8,6 +8,16 @@
         <li routerLink="">Sobre Nosotros</li>
         <li routerLink="/contact">Contacto</li>
     </ul>
+    <div class="language-selector">
+        <button (click)="toggleLanguageMenu()" title="Seleccionar idioma">
+            <img [src]="getFlagImage()" alt="Idioma" width="30" height="20" />
+        </button>
+        <div *ngIf="isLanguageMenuOpen" class="language-dropdown">
+            <div *ngFor="let lang of languages" (click)="switchLanguage(lang)">
+                <img [src]="getFlagImage(lang)" alt="{{lang}}" width="40" height="25" />
+            </div>
+        </div>
+    </div>
     <div routerLink="/login" class="nav-login">
         <i style="color: white;" class="fas fa-user"></i>
     </div>

@@ -22,11 +22,6 @@ import { TranslateModule, TranslateService} from '@ngx-translate/core';
   styleUrls: ['./home-page.component.css']  // Cambié styleUrl a styleUrls
 })
 export class HomePageComponent {
-  translate:TranslateService = inject(TranslateService);
-
-  switchLanguage(language: string) {
-    this.translate.use(language);
-  }
-  
+  translate:TranslateService = inject(TranslateService);  
 
 }
