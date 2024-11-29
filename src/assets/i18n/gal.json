@@ -3,5 +3,8 @@
         "home-presentacion":"Benvido a nosa tenda de Mel",
         "home-presentacion-larga":"Descubre a dulzura natural en cada frasco. Nosa mel é 100% orgánica e recollida directamente da colmea",
         "home-presentacion-boton":"Mercar"
+    },
+    "cart":{
+        "cart-presentation":"Solicitude de compra"
     }
 }

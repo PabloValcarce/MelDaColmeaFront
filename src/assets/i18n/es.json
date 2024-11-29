@@ -5,5 +5,8 @@
         "home-presentacion-boton": "Comprar",
         "home-info1-titulo": "De donde viene nuestra miel ?",
         "home-info1-texto": "Español"
+    },
+    "cart":{
+        "cart-presentation":"Solicitud de compra"
     }
 }

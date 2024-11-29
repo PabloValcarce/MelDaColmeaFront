@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 import { FooterComponent } from '../footer/footer.component';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { CartService } from '../../services/cart.service';
@@ -15,7 +15,8 @@ import { CartService } from '../../services/cart.service';
     NavComponent,
     FooterComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   providers: [TranslateService],
   templateUrl: './cart.component.html',
@@ -23,6 +24,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartComponent {
 
+  translate: TranslateService = inject(TranslateService);
   cartForm!: FormGroup;
   Toast = Swal.mixin({
     toast: true,
@@ -35,7 +37,6 @@ export class CartComponent {
       toast.onmouseleave = Swal.resumeTimer;
     }
   });
-  translate: TranslateService = inject(TranslateService);
 
   constructor(
     private fb: FormBuilder,
