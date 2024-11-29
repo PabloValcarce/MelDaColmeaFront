@@ -1,0 +1,39 @@
+<app-nav></app-nav>
+
+<div class="form-container">
+    <h2>Formulario</h2>
+    <form [formGroup]="cartForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Campo Cliente -->
+      <div>
+        <label for="cliente">Cliente:</label>
+        <input id="cliente" formControlName="cliente" type="text" />
+        <div *ngIf="cartForm.get('cliente')?.invalid && cartForm.get('cliente')?.touched" class="error">
+          El campo cliente es obligatorio.
+        </div>
+      </div>
+  
+      <!-- Campo Concepto -->
+      <div>
+        <label for="concepto">Concepto:</label>
+        <input id="concepto" formControlName="concepto" type="text" />
+        <div *ngIf="cartForm.get('concepto')?.invalid && cartForm.get('concepto')?.touched" class="error">
+          El campo concepto es obligatorio.
+        </div>
+      </div>
+  
+      <!-- Campo Cantidad -->
+      <div>
+        <label for="cantidad">Cantidad:</label>
+        <input id="cantidad" formControlName="cantidad" type="number" />
+        <div *ngIf="cartForm.get('cantidad')?.invalid && cartForm.get('cantidad')?.touched" class="error">
+          La cantidad es obligatoria y debe ser mayor o igual a 1.
+        </div>
+      </div>
+  
+      <!-- Botón de Enviar -->
+      <button type="submit" [disabled]="cartForm.invalid">Enviar</button>
+    </form>
+  </div>
+
+<app-footer></app-footer>

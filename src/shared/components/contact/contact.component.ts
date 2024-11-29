@@ -2,7 +2,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavComponent } from '../nav/nav.component';
-import { ContactService } from '../../services/contact-service.service';
+import { ContactService } from '../../services/contact.service';
 import { FooterComponent } from '../footer/footer.component';
 import Swal from 'sweetalert2';
 
@@ -73,6 +73,7 @@ export class ContactComponent {
           Swal.showLoading(); // Mostrar el spinner de carga
         }
       })
+
       this.contactService.sendContact(formData).subscribe(
         response => {
           console.log('Correo enviado con éxito', response);

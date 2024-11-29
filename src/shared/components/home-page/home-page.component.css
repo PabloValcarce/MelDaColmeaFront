@@ -1,224 +1,220 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .presentation {
-    background-image: url("/assets/hexagono.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    top:0;
-    left: 0;
-    right: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 70px;
-    margin: auto;
-    height: 100vh;
-    overflow: hidden; 
+  background-image: url("/assets/hexagono.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 70px;
+  height: 100vh;
+  overflow: hidden;
 }
 
 @keyframes slideIn {
-    from {
-        transform: translateY(-40px);
-        opacity: 0; 
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .imagen {
-    display: flex;
-    opacity: 0; 
-    justify-content: center;
-    animation: slideIn 2s ease-in forwards;  
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  animation: slideIn 2s ease-in forwards;
 }
 
 .imagen img {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 60vh;
-    align-items: center;
-    border-top-right-radius: 50px;
-    animation: slideIn 2s ease-in forwards; 
+  width: 100%;
+  max-width: 30vw;
+  align-items: center;
+  border-top-right-radius: 50px;
+  animation: slideIn 2s ease-in forwards;
 }
 
 .texto {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    color: var(--amarillo);
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    text-align: center;
-    margin: 0; 
-    height: 100%; 
-    box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  color: var(--amarillo);
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .texto h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    opacity: 0; 
-    animation: slideIn 2s ease-in forwards;  
-    animation-delay: 0.3s;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: slideIn 2s ease-in forwards;
+  animation-delay: 0.3s;
 }
 
 .texto p {
-    font-size: 1.25rem;
-    margin-bottom: 30px;
-    opacity: 0; 
-    line-height: 1.6;
-    animation: slideIn 1s ease-out forwards;  
-    animation-delay: 1.2s; 
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  opacity: 0;
+  line-height: 1.6;
+  animation: slideIn 1s ease-out forwards;
+  animation-delay: 1.2s;
 }
 
 .texto .btn {
-    background-color: var(--amarillo); 
-    color: var(--marron); 
-    padding: 15px 30px;
-    opacity: 0; 
-    font-size: 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    animation: slideIn 1s ease-out forwards; 
-    animation-delay: 2s; 
+  background-color: var(--amarillo);
+  color: var(--marron);
+  padding: 15px 30px;
+  opacity: 0;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  animation: slideIn 1s ease-out forwards;
+  animation-delay: 2s;
 }
 
 .texto .btn:hover {
-    background-color: var(--amarillo); 
+  background-color: var(--amarillo);
 }
 
 
-/* Estilos para el contenedor .img1 */
+
+.information {
+  background-image: url("/assets/hexagono2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
 .img1 {
-    width: 48%;
-    padding: 20px;
-    background-color:var(--marron);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  animation: fadeInLeft 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+
+/* Imagen flotante a la izquierda */
+.img1 img {
+  width: 100%;
+  max-width: 30vw;
+  align-items: center;
+  border-top-right-radius: 50px;
+}
+
+/* Animación de entrada */
+@keyframes fadeInLeft {
+  0% {
     opacity: 0;
-    animation: fadeInLeft 1s ease-out forwards;
-    animation-delay: 0.22s;
-    display: inline-block; /* Hace que los divs estén en línea */
-    margin-right: 4%;
+    transform: translateX(-50px);
   }
-  
-  /* Contenedor de la imagen */
-  .image1-container {
-    position: relative;
-    display: inline-block;
-    max-width: 100%;
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  /* Imagen flotante a la izquierda */
-  .imgage1-container > img{
-    float: left;
-    width: 100%;
-    max-width: 200px; /* Ajusta el tamaño de la imagen */
-    margin-right: 20px;
-    border-radius: 8px;
+}
+
+/* Estilos para el contenedor .info1 */
+.info1 {
+  color: var(--amarillo);
+  padding: 20px;
+  max-width: 60%;
+  background-color: var(--marron);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeInRight 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
   }
-  
-  /* Animación de entrada */
-  @keyframes fadeInLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  /* Estilos para el contenedor .info1 */
+}
+
+/* Estilos del título en .info1 */
+.info1 h1 {
+  font-size: 24px;
+  color: var(--amarillo);
+  margin-bottom: 15px;
+}
+
+/* Estilos del párrafo en .info1 */
+.info1 p {
+  font-size: 14px;
+  color: var(--amarillo);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+
+  .img1,
   .info1 {
-    width: 48%;
-    padding: 20px;
-    background-color: var(--marron);
-    color: var(--amarillo);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    opacity: 0;
-    animation: fadeInRight 1s ease-out forwards;
-    animation-delay: 0.22s;
-    display: inline-block; /* Hace que los divs estén en línea */
-  }
-  
-  /* Animación de entrada para info1 */
-  @keyframes fadeInRight {
-    0% {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  /* Estilos del título en .info1 */
-  .info1 h1 {
-    font-size: 24px;
-    color: var(--amarillo);
+    width: 100%;
+    padding: 15px;
+    margin-right: 0;
     margin-bottom: 15px;
   }
-  
-  /* Estilos del párrafo en .info1 */
+
+  .img-float-left {
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .info1 h1 {
+    font-size: 20px;
+  }
+
   .info1 p {
-    font-size: 14px;
-    color: var(--amarillo);
-    margin-bottom: 20px;
-    line-height: 1.6;
+    font-size: 13px;
   }
-  
-  /* Estilos responsivos */
-  @media (max-width: 768px) {
-    .img1, .info1 {
-      width: 100%;
-      padding: 15px;
-      margin-right: 0;
-      margin-bottom: 15px;
-    }
-  
-    .img-float-left {
-      max-width: 100%;
-      width: 100%;
-      margin-right: 0;
-    }
-  
-    .span-new, .span-free {
-      font-size: 12px;
-      padding: 4px 8px;
-    }
-  
-    .info1 h1 {
-      font-size: 20px;
-    }
-  
-    .info1 p {
-      font-size: 13px;
-    }
-  
-    .circle {
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-      font-size: 16px;
-    }
-  }
-  
+}

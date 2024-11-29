@@ -1,23 +1,16 @@
 :host {
     display: block;
 }
-
-#footer {
+.footer {
+    position: sticky;
+    bottom: 0;
     width: 100%;
     height: 180px;
-    padding: 20px;
-    position: relative;
-    left: 0;
-    background-color: var(--marron);
-    text-align: center;
-}
-.footer {
+    padding: 30px 20px;
+    box-sizing: border-box;
     background-color: var(--marron);
     color: var(--amarillo);
-    padding: 30px 20px;
     text-align: center;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .footer-content {

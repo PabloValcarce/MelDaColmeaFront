@@ -1,20 +1,18 @@
-import { Component, inject, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { LoginComponent } from '../login/login.component';
+import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../footer/footer.component';
-import { ContactComponent } from '../contact/contact.component';
 import { TranslateModule, TranslateService} from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     NavComponent,
-    LoginComponent,
     FooterComponent,
-    ContactComponent,
     TranslateModule
   ],
   providers:[TranslateService],
