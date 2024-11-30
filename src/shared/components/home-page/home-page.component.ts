@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../footer/footer.component';
 import { TranslateModule, TranslateService} from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { InViewportDirective } from '../../directives/in-viewport.directive';
+import { HomePageDirective } from '../../directives/home-page.directive';
 
 @Component({
   selector: 'app-home-page',
@@ -15,7 +15,7 @@ import { InViewportDirective } from '../../directives/in-viewport.directive';
     NavComponent,
     FooterComponent,
     TranslateModule,
-    InViewportDirective
+    HomePageDirective
   ],
   providers:[TranslateService],
   templateUrl: './home-page.component.html',

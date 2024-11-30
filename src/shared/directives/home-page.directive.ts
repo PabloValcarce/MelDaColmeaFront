@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Renderer2, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Directive, ElementRef, Renderer2, HostListener, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appInViewport]',
   standalone: true
 })
-export class InViewportDirective implements OnInit {
+export class HomePageDirective implements OnInit{
   private triggerMargin: number = 200; // Valor por defecto
 
   constructor(
@@ -19,7 +19,12 @@ export class InViewportDirective implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.updateTriggerMargin(); // Establece el margen inicial
       this.renderer.addClass(this.el.nativeElement, 'fade-in');
+      
+      setTimeout(() => {
+        window.scrollTo(0, 0); // Mueve el scroll a la parte superior con un pequeño retraso
+      }, 100); 
     }
+
   }
 
   @HostListener('window:scroll', [])

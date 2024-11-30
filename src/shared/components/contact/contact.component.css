@@ -2,10 +2,11 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
+    background-image: url("/assets/contact2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
-app-footer {
-    margin-top: auto;
 }
 
 .input-error input,
@@ -75,9 +76,6 @@ app-footer {
     margin-right: 10px;
     font-size: 25px;
 }
-
-
-
 .links {
     display: flex;
     gap: 15px;
@@ -325,32 +323,38 @@ form>button:hover,
         margin-top: 100px;
 
     }
-    .box-info > h1{
+
+    .box-info>h1 {
         font-size: 20px
     }
-    .data{
+
+    .data {
         gap: 5px;
     }
-    
+
 }
 
 @media (max-width: 530px) {
     app-footer {
         margin-top: 150px;
     }
-    .box-info{
+
+    .box-info {
         display: flex;
         flex-direction: column;
     }
-    .box-info >h1{
+
+    .box-info>h1 {
         line-height: 20px;
     }
 }
+
 @media (max-width: 400px) {
     app-footer {
         margin-top: 200px;
     }
 }
+
 @media (max-width: 360px) {
     app-footer {
         margin-top: 250px;

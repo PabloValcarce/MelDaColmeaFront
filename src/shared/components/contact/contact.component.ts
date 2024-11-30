@@ -47,17 +47,7 @@ export class ContactComponent {
       subject: ['', [Validators.required]],
       message: ['', [Validators.required]]
     });
-
-    // Establecer estilos de fondo en el body
-    if (isPlatformBrowser(this.platformId)) {
-      this.renderer.setStyle(document.body, 'background-image', "url(assets/contact2.jpg)");
-      this.renderer.setStyle(document.body, 'background-repeat', "no-repeat");
-      this.renderer.setStyle(document.body, 'background-size', "cover");
-      this.renderer.setStyle(document.body, 'background-position', "center");
-      this.renderer.setStyle(document.body, 'height', '70%');
-    }
   }
-
   onSubmit(): void {
     if (this.contactForm.valid) {
 
