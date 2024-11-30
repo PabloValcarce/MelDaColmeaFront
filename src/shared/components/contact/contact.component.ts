@@ -1,4 +1,4 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavComponent } from '../nav/nav.component';
@@ -15,7 +15,6 @@ import Swal from 'sweetalert2';
     ReactiveFormsModule,
     NavComponent,
     FooterComponent,
-
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'

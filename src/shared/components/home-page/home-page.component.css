@@ -9,10 +9,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -103,14 +99,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
-  left: 0;
-  right: 0;
+  height: 100vh;
+  padding-right: 30vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: space-between;
-  height: 100vh;
   overflow: hidden;
 }
 
