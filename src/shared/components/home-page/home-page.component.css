@@ -34,14 +34,14 @@
   }
 }
 
-.imagen {
+.image {
   display: flex;
   opacity: 0;
   justify-content: center;
   animation: slideIn 2s ease-in forwards;
 }
 
-.imagen img {
+.image img {
   width: 100%;
   max-width: 30vw;
   align-items: center;
@@ -98,8 +98,6 @@
   background-color: var(--amarillo);
 }
 
-
-
 .information {
   background-image: url("/assets/hexagono2.png");
   background-repeat: no-repeat;
@@ -114,15 +112,37 @@
   justify-content: space-between;
   height: 100vh;
   overflow: hidden;
-
 }
 
+.fade-in-left, .fade-in-right {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+}
+
+/* Desde la izquierda */
+.fade-in-left {
+  transform: translateX(-100px);
+}
+
+.fade-in-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Desde la derecha */
+.fade-in-right {
+  transform: translateX(100px);
+}
+
+.fade-in-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
 .img1 {
   display: flex;
   opacity: 0;
   justify-content: center;
-  animation: fadeInLeft 1s ease-out forwards;
-  animation-delay: 0.5s;
 }
 
 
@@ -134,18 +154,6 @@
   border-top-right-radius: 50px;
 }
 
-/* Animación de entrada */
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
 /* Estilos para el contenedor .info1 */
 .info1 {
@@ -156,20 +164,6 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   opacity: 0;
-  animation: fadeInRight 1s ease-out forwards;
-  animation-delay: 1s;
-}
-
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 /* Estilos del título en .info1 */
@@ -186,12 +180,6 @@
   margin-bottom: 20px;
   line-height: 1.6;
 }
-
-
-
-
-
-
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
