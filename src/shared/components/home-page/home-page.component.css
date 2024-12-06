@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 70px;
-  height: 100vh;
+  height: 120vh;
   overflow: hidden;
 }
 
@@ -94,67 +94,67 @@
   background-color: var(--amarillo);
 }
 
-.information {
-  background-image: url("/assets/hexagono2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  padding-right: 30vw;
+.information-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-}
-
-.fade-in-left, .fade-in-right {
-  opacity: 0;
-  transform: translateX(0);
-  transition: opacity 1.6s ease, transform 1.6s ease;
-}
-
-/* Desde la izquierda */
-.fade-in-left {
-  transform: translateX(-100px);
-}
-
-.fade-in-left.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Desde la derecha */
-.fade-in-right {
-  transform: translateX(100px);
-}
-
-.fade-in-right.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-.img1 {
-  display: flex;
-  opacity: 0;
+  grid-template-columns: auto 5px auto;
+  gap: 20px 70px;
   justify-content: center;
+  width: 100vw;
+  padding: 5vh 15vw;
+}
+.informaciones{
+  padding:7.5%;
+  margin:0 auto;
+  max-width: 1000px;
+  text-align: center;
+  display: grid;
+  gap:5%;
+  grid-template-columns: 20% 80%;
+}
+.informaciones-izq{
+  text-align: right;
+}
+.informaciones-dch{
+  text-align: left;
+}
+.linea{
+  background-color: black;
+  position: relative;
+  z-index: 0;
 }
 
+.linea::before,.linea::after{
+  content:"";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top:-20px;
+  left:-9px;
+}
 
+.linea::after{
+  top:100%;
+  z-index: 1;
+}
+.img1{
+  display: flex;
+  align-items: center;
+}
 /* Imagen flotante a la izquierda */
 .img1 img {
   width: 100%;
-  max-width: 30vw;
   align-items: center;
   border-top-right-radius: 50px;
 }
-
 
 /* Estilos para el contenedor .info1 */
 .info1 {
   color: var(--amarillo);
   padding: 20px;
-  max-width: 60%;
-  background-color: var(--marron);
+  /* background-color: var(--marron); */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   opacity: 0;
@@ -173,6 +173,34 @@
   color: var(--amarillo);
   margin-bottom: 20px;
   line-height: 1.6;
+}
+
+
+.fade-in-left,
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+}
+
+ /* Desde la izquierda  */
+ .fade-in-left {
+  transform: translateX(-100px);
+}
+
+.fade-in-left.active {
+  opacity: 1;
+  transform: translateX(0);
+} 
+
+/* Desde la derecha */
+.fade-in-right {
+  transform: translateX(100px);
+}
+
+.fade-in-right.active {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Estilos responsivos */
