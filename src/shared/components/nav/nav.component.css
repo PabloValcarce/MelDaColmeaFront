@@ -10,10 +10,11 @@ nav {
     left: 0;
     right: 0;
     height: 70px;
-    background-color: rgba(58, 54, 43, 0.75);
-    display: flex;
+    background-color: rgba(58, 54, 43, 1);
+    display: grid;
+    grid-template-columns: 80% auto;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     transition: background-color 0.5s ease;
     padding: 0 20px;
     z-index: 2000;
@@ -59,7 +60,6 @@ nav ul li {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-    width: 50%;
     text-align: left;
     padding: 10px 0;
     letter-spacing: 1px;
@@ -159,9 +159,6 @@ nav ul.show .language-dropdown {
 
 
 @media (max-width: 1000px) {
-    .nav-title {
-        width: 80%;
-    }
 
     nav ul {
         text-align: center;
@@ -194,27 +191,59 @@ nav ul.show .language-dropdown {
     }
 }
 
-@media (max-width: 750px) {
-
-    .nav-title {
-        width: 70%;
-    }
-
-}
-
 @media (max-width: 700px) {
-    .nav-login{
-        margin-right: 10%;
+    nav {
+
+        grid-template-columns: auto auto;
+        justify-content: left;
+        gap: 60vw;
     }
 }
 @media (max-width: 650px) {
+    nav {
 
-    .nav-login{
-        margin-right: 40px;
+        grid-template-columns: auto auto;
+        justify-content: left;
+        gap: 50vw;
+    }
+}
+@media (max-width: 500px) {
+    nav {
+
+        grid-template-columns: auto auto;
+        justify-content: left;
+        gap: 40vw;
     }
 }
 @media (max-width: 400px) {
-    .nav-title {
-        width: 50%;
+    nav {
+
+        grid-template-columns: auto auto;
+        justify-content: left;
+        gap: 30vw;
+    }
+}
+@media (max-width: 400px) {
+    nav {
+
+        grid-template-columns: auto auto;
+        justify-content: left;
+        gap: 20vw;
+    }
+}
+@media (max-width: 300px) {
+    nav {
+
+        grid-template-columns: auto auto;
+        justify-content: left;
+        gap: 10vw;
+    }
+}
+@media (max-width: 260px) {
+    nav {
+
+        grid-template-columns: auto auto;
+        justify-content: left;
+        gap: 0
     }
 }

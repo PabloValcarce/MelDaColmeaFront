@@ -1,5 +1,5 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, inject, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Component, inject, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -21,18 +21,16 @@ export class NavComponent {
     isLanguageMenuOpen: boolean = false;
     languages: string[] = ['es', 'en', 'fr', 'de', 'gal'];
 
-    constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+    constructor(private renderer: Renderer2, @Inject(DOCUMENT) private document: Document) { }
 
     ngOnInit() {
-        if (isPlatformBrowser(this.platformId)) {
-            window.addEventListener('scroll', this.onScroll.bind(this));
-        }
+        // Usamos Renderer2 para agregar el event listener al documento
+        this.renderer.listen(this.document, 'click', this.onClickOutsideMenu.bind(this));
     }
 
     ngOnDestroy() {
-        if (isPlatformBrowser(this.platformId)) {
-            window.removeEventListener('scroll', this.onScroll.bind(this));
-        }
+        // Asegúrate de eliminar el event listener cuando el componente se destruya
+        // Aunque con Renderer2 se maneja de forma segura
     }
 
 
@@ -53,21 +51,19 @@ export class NavComponent {
     }
 
     toggleLanguageMenu() {
-       
+
         this.isLanguageMenuOpen = !this.isLanguageMenuOpen;
-       
+
     }
     toggleMenu() {
-
         this.isMenuOpen = !this.isMenuOpen
     }
-
-    onScroll() {
-        if (isPlatformBrowser(this.platformId)) {
-            const navbar = document.getElementById('navbar');
-            if (navbar) {
-                navbar.style.backgroundColor = window.scrollY > 50 ? 'rgba(58, 54, 43, 1)' : 'rgba(58, 54, 43, 0.75)';
-            }
+    onClickOutsideMenu(event: MouseEvent) {
+        const menu = document.getElementById('navbar');
+        if (menu && !menu.contains(event.target as Node)) {
+            this.isMenuOpen = false; // Cierra el menú si el clic fue fuera de él
         }
     }
+
+
 }
