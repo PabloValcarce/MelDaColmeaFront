@@ -1,0 +1,18 @@
+{
+    "home": {
+        "home-presentacion": "Willkommen in unserem Honigladen",
+        "home-presentacion-larga": "Entdecken Sie die natürliche Süße in jedem Glas. Unser Honig ist 100% biologisch und direkt aus dem Bienenstock.",
+        "home-presentacion-boton": "Kaufen",
+        "home-info1-titulo": "Woher kommt unser Honig?",
+        "home-info1-texto": "Unser Honig wird im Herzen von Los Ancares, einer privilegierten natürlichen Umgebung, hergestellt. Hier sammeln unsere Bienen den Nektar von einheimischen Blumen und schaffen einen authentischen Honig, der reich an Nuancen ist.",
+        "home-info2-titulo": "Garantierte handwerkliche Qualität",
+        "home-info2-texto": "Unser Honig ist 100% natürlich, ohne Zusatzstoffe oder industrielle Prozesse. Er behält alle seine Nährstoffeigenschaften und seinen authentischen Geschmack.",
+        "home-info3-titulo": "Gesundheitsvorteile",
+        "home-info3-texto": "Der Honig von Los Ancares verwöhnt nicht nur den Gaumen, sondern ist auch eine Quelle des Wohlbefindens. Reich an Antioxidantien und antibakteriellen Eigenschaften ist er perfekt, um Ihre Gesundheit auf natürliche Weise zu pflegen.",
+        "home-info4-titulo": "Engagement für die Umwelt",
+        "home-info4-texto": "Sich um die Bienen zu kümmern bedeutet, sich um den Planeten zu kümmern. Unser Engagement für die Umwelt garantiert nachhaltige Praktiken, die die Biodiversität respektieren und die Bestäuber schützen, die für unser Ökosystem unerlässlich sind."
+    },
+    "cart": {
+        "cart-presentation": "Kaufanfrage"
+    }
+}

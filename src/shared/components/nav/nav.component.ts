@@ -53,25 +53,12 @@ export class NavComponent {
     }
 
     toggleLanguageMenu() {
-        if (this.isMenuOpen) {
-            this.isMenuOpen = false;
-        }
+       
         this.isLanguageMenuOpen = !this.isLanguageMenuOpen;
-        const languageSelector = document.querySelector('.language-selector');
-        if (languageSelector) {
-            if (this.isLanguageMenuOpen) {
-                languageSelector.classList.add('open');
-            } else {
-                languageSelector.classList.remove('open');
-            }
-        }
+       
     }
-
-
     toggleMenu() {
-        if (this.isLanguageMenuOpen) {
-            this.isLanguageMenuOpen = false;
-        }
+
         this.isMenuOpen = !this.isMenuOpen
     }
 
@@ -83,5 +70,4 @@ export class NavComponent {
             }
         }
     }
-
 }

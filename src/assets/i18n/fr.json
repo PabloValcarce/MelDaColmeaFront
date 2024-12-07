@@ -1,0 +1,18 @@
+{
+    "home": {
+        "home-presentacion": "Bienvenue dans notre boutique de Miel",
+        "home-presentacion-larga": "Découvrez la douceur naturelle dans chaque pot. Notre miel est 100% bio et directement de la ruche.",
+        "home-presentacion-boton": "Acheter",
+        "home-info1-titulo": "D'où vient notre miel ?",
+        "home-info1-texto": "Notre miel est produit au cœur des Ancares, un environnement naturel privilégié. Ici, nos abeilles récoltent le nectar des fleurs locales, créant un miel authentique et riche en nuances.",
+        "home-info2-titulo": "Qualité Artisanale Garantie",
+        "home-info2-texto": "Notre miel est 100% naturel, sans additifs ni processus industriels. Il conserve toutes ses propriétés nutritionnelles et son goût authentique.",
+        "home-info3-titulo": "Bienfaits pour la santé",
+        "home-info3-texto": "Le miel des Ancares ne ravit pas seulement les papilles, il est aussi une source de bien-être. Riche en antioxydants et en propriétés antibactériennes, il est parfait pour prendre soin de votre santé de manière naturelle.",
+        "home-info4-titulo": "Engagement en faveur de l'environnement",
+        "home-info4-texto": "Prendre soin des abeilles, c'est prendre soin de la planète. Notre engagement en faveur de l'environnement garantit des pratiques durables qui respectent la biodiversité et protègent les pollinisateurs, essentiels à notre écosystème."
+    },
+    "cart": {
+        "cart-presentation": "Demande d'achat"
+    }
+}

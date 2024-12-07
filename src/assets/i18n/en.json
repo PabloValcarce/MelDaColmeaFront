@@ -1,0 +1,18 @@
+{
+    "home": {
+        "home-presentacion": "Welcome to our Honey Store",
+        "home-presentacion-larga": "Discover natural sweetness in every jar. Our honey is 100% organic and straight from the hive.",
+        "home-presentacion-boton": "Buy",
+        "home-info1-titulo": "Where does our honey come from?",
+        "home-info1-texto": "Our honey is produced in the heart of Los Ancares, a privileged natural environment. Here, our bees collect nectar from native flowers, creating honey that is authentic and rich in nuances.",
+        "home-info2-titulo": "Guaranteed Artisan Quality",
+        "home-info2-texto": "Our honey is 100% natural, with no additives or industrial processes. It retains all its nutritional properties and authentic flavor.",
+        "home-info3-titulo": "Health Benefits",
+        "home-info3-texto": "Los Ancares honey not only delights the taste buds, but it is also a source of well-being. Rich in antioxidants and antibacterial properties, it is perfect for taking care of your health naturally.",
+        "home-info4-titulo": "Commitment to the Environment",
+        "home-info4-texto": "Taking care of bees is taking care of the planet. Our commitment to the environment guarantees sustainable practices that respect biodiversity and protect pollinators, which are essential to our ecosystem."
+    },
+    "cart": {
+        "cart-presentation": "Purchase request"
+    }
+}

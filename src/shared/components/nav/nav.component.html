@@ -6,20 +6,19 @@
     <ul [ngClass]="{'show': isMenuOpen}">
         <li routerLink="/">Inicio</li>
         <li routerLink="/contact">Contacto</li>
-        <li routerLink="/login">Login <i style="color: white;" class="fas fa-user"></i></li>
-
-    </ul>
-    <div class="language-selector">
-        <button (click)="toggleLanguageMenu()" title="Seleccionar idioma">
-            <img [src]="getFlagImage()" alt="Idioma" width="30" height="20" />
-        </button>
-        <div *ngIf="isLanguageMenuOpen" class="language-dropdown">
-            <div *ngFor="let lang of languages" (click)="switchLanguage(lang)">
-                <img [src]="getFlagImage(lang)" alt="{{lang}}" width="40" height="25" />
+        <li routerLink="/login"><i style="color: var(--amarillo);" class="fas fa-user"> </i> &nbsp;Login</li>
+        <li>
+            <div class="language-selector">
+                <button  [style.display]="isLanguageMenuOpen ? 'none' : 'block'"
+                 (click)="toggleLanguageMenu()" title="Seleccionar idioma">
+                    <img [src]="getFlagImage()" alt="Idioma" width="30" height="20" />
+                </button>
+                <div *ngIf="isLanguageMenuOpen" class="language-dropdown">
+                    <div *ngFor="let lang of languages" (click)="switchLanguage(lang)">
+                        <img [src]="getFlagImage(lang)" alt="{{lang}}" width="40" height="25" />
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div routerLink="/login" class="nav-login">
-        <i style="color: white;" class="fas fa-user"></i>
-    </div>
+        </li>
+    </ul>
 </nav>
