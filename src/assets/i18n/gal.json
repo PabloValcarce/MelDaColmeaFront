@@ -1,10 +1,18 @@
 {
-    "home":{
-        "home-presentacion":"Benvido a nosa tenda de Mel",
-        "home-presentacion-larga":"Descubre a dulzura natural en cada frasco. Nosa mel é 100% orgánica e recollida directamente da colmea",
-        "home-presentacion-boton":"Mercar"
+    "home": {
+        "home-presentacion": "Benvido a nosa tenda de Mel",
+        "home-presentacion-larga": "Descubre a dulzura natural en cada frasco. Nosa mel é 100% orgánica e recollida directamente da colmea",
+        "home-presentacion-boton": "Mercar",
+        "home-info1-titulo": "De onde vén o noso mel?",
+        "home-info1-texto": "O noso mel elabórase no corazón dos Ancares, unha contorna natural privilexiada. Aquí, as nosas abellas recollen o néctar de flores autóctonas, creando un mel auténtico e rico en matices.",
+        "home-info2-titulo": "Calidade Artesanal Garantida",
+        "home-info2-texto": "O noso mel é 100% natural, sen aditivos nin procesos industriais. Mantén todas as súas propiedades nutricionais e o seu sabor auténtico.",
+        "home-info3-titulo": "Beneficios para a Saúde",
+        "home-info3-texto": "O mel dos Ancares non só deleita o padal, senón que tamén é unha fonte de benestar. Rico en antioxidantes e propiedades antibacterianas, é perfecto para coidar a túa saúde de forma natural.",
+        "home-info4-titulo": "Compromiso co Medio Ambiente",
+        "home-info4-texto": "Coidar das abellas é coidar do planeta. O noso compromiso co medio ambiente garante prácticas sostibles que respectan a biodiversidade e protexen os polinizadores, esenciais para o noso ecosistema."
     },
-    "cart":{
-        "cart-presentation":"Solicitude de compra"
+    "cart": {
+        "cart-presentation": "Solicitude de compra"
     }
 }

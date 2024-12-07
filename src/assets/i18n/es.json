@@ -4,9 +4,15 @@
         "home-presentacion-larga": "Descubre la dulzura natural en cada frasco. Nuestra miel es 100% orgánica y directamente de la colmena.",
         "home-presentacion-boton": "Comprar",
         "home-info1-titulo": "De donde viene nuestra miel ?",
-        "home-info1-texto": "Español"
+        "home-info1-texto": "Nuestra miel se elabora en el corazón de Los Ancares, un entorno natural privilegiado. Aquí, nuestras abejas recolectan el néctar de flores autóctonas, creando una miel auténtica y rica en matices.",
+        "home-info2-titulo": "Calidad Artesanal Garantizada",
+        "home-info2-texto": "Nuestra miel es 100% natural, sin aditivos ni procesos industriales. Mantiene todas sus propiedades nutricionales y sabor auténtico",
+        "home-info3-titulo": "Beneficios para la Salud",
+        "home-info3-texto": "La miel de Los Ancares no solo deleita el paladar, sino que también es una fuente de bienestar. Rica en antioxidantes y propiedades antibacterianas, es perfecta para cuidar tu salud de forma natural.",
+        "home-info4-titulo": "Compromiso con el medio Ambiente",
+        "home-info4-texto": "Cuidar de las abejas es cuidar del planeta. Nuestro compromiso con el medio ambiente garantiza prácticas sostenibles que respetan la biodiversidad y protegen a los polinizadores, esenciales para nuestro ecosistema."
     },
-    "cart":{
-        "cart-presentation":"Solicitud de compra"
+    "cart": {
+        "cart-presentation": "Solicitud de compra"
     }
 }
