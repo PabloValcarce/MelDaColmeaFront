@@ -5,8 +5,9 @@
     </div>
     <ul [ngClass]="{'show': isMenuOpen}">
         <li routerLink="/">Inicio</li>
-        <li routerLink="">Sobre Nosotros</li>
         <li routerLink="/contact">Contacto</li>
+        <li routerLink="/login">Login <i style="color: white;" class="fas fa-user"></i></li>
+
     </ul>
     <div class="language-selector">
         <button (click)="toggleLanguageMenu()" title="Seleccionar idioma">

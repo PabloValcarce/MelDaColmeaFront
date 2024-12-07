@@ -141,6 +141,9 @@ nav ul li {
     .menu-toggle {
         display: block;
     }
+    .nav-login{
+        display: none;
+    }
 }
 
 @media (max-width: 750px) {
