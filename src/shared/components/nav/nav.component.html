@@ -4,8 +4,9 @@
         &#9776;
     </div>
     <ul [ngClass]="{'show': isMenuOpen}">
-        <li routerLink="/">Inicio</li>
-        <li routerLink="/contact">Contacto</li>
+        <li routerLink="/">{{'nav.nav-home' | translate}}</li>
+        <li routerLink>{{'nav.nav-about' | translate}}</li>
+        <li routerLink="/contact">{{'nav.nav-contact' | translate}}</li>
         <li routerLink="/login"><i style="color: var(--amarillo);" class="fas fa-user"> </i> &nbsp;Login</li>
         <li>
             <div class="language-selector">

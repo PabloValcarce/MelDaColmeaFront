@@ -14,5 +14,10 @@
     },
     "cart": {
         "cart-presentation": "Solicitude de compra"
+    },
+    "nav": {
+        "nav-home": "Inicio",
+        "nav-about": "Sobre nós",
+        "nav-contact": "Contacto"
     }
 }

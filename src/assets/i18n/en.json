@@ -14,5 +14,10 @@
     },
     "cart": {
         "cart-presentation": "Purchase request"
+    },
+    "nav":{
+        "nav-home":"Home",
+        "nav-about":"About us",
+        "nav-contact":"Contact"
     }
 }

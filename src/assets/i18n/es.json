@@ -15,4 +15,9 @@
     "cart": {
         "cart-presentation": "Solicitud de compra"
     }
+    ,"nav":{
+        "nav-home":"Inicio",
+        "nav-about":"Sobre nosotros",
+        "nav-contact":"Contacto"
+    }
 }

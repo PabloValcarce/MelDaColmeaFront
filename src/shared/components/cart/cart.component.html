@@ -1,39 +1,52 @@
-<app-nav></app-nav>
+<app-nav></app-nav>ç
+<div class="cart">
+  <h2>{{'cart.cart-presentation'| translate}}</h2>
+  <div class="cart-form">
+    <div class="form-container">
+      <form [formGroup]="cartForm" (ngSubmit)="onSubmit()">
+        <!-- Campo Cliente -->
+        <div class="input-box"
+          [ngClass]="{'input-error': cartForm.get('cliente')?.invalid && (cartForm.get('cliente')?.touched || cartForm.get('cliente')?.dirty)}">
+          <input id="cliente" formControlName="cliente" type="text" placeholder="Cliente" required />
+          <i class="fa-solid fa-user"></i>
+          <div
+            *ngIf="cartForm.get('cliente')?.invalid && (cartForm.get('cliente')?.touched || cartForm.get('cliente')?.dirty)"
+            class="error-message">
+            <small>* Este campo es obligatorio</small>
+          </div>
+        </div>
 
-<div class="form-container">
-    <h2>{{'cart.cart-presentation'| translate}}</h2>
-    <form [formGroup]="cartForm" (ngSubmit)="onSubmit()">
-      
-      <!-- Campo Cliente -->
-      <div>
-        <label for="cliente">Cliente:</label>
-        <input id="cliente" formControlName="cliente" type="text" />
-        <div *ngIf="cartForm.get('cliente')?.invalid && cartForm.get('cliente')?.touched" class="error">
-          El campo cliente es obligatorio.
+        <!-- Campo Concepto -->
+        <div class="input-box"
+          [ngClass]="{'input-error': cartForm.get('concepto')?.invalid && (cartForm.get('concepto')?.touched || cartForm.get('concepto')?.dirty)}">
+          <input id="concepto" formControlName="concepto" type="text" placeholder="Concepto" required />
+          <i class="fa-solid fa-file-alt"></i>
+          <div
+            *ngIf="cartForm.get('concepto')?.invalid && (cartForm.get('concepto')?.touched || cartForm.get('concepto')?.dirty)"
+            class="error-message">
+            <small>* Este campo es obligatorio</small>
+          </div>
         </div>
-      </div>
-  
-      <!-- Campo Concepto -->
-      <div>
-        <label for="concepto">Concepto:</label>
-        <input id="concepto" formControlName="concepto" type="text" />
-        <div *ngIf="cartForm.get('concepto')?.invalid && cartForm.get('concepto')?.touched" class="error">
-          El campo concepto es obligatorio.
+
+        <!-- Campo Cantidad -->
+        <div class="input-box"
+          [ngClass]="{'input-error': cartForm.get('cantidad')?.invalid && (cartForm.get('cantidad')?.touched || cartForm.get('cantidad')?.dirty)}">
+          <input id="cantidad" formControlName="cantidad" type="number" placeholder="Cantidad" required />
+          <i class="fa-solid fa-cogs"></i>
+          <div
+            *ngIf="cartForm.get('cantidad')?.invalid && (cartForm.get('cantidad')?.touched || cartForm.get('cantidad')?.dirty)"
+            class="error-message">
+            <small>* La cantidad es obligatoria y debe ser mayor o igual a 1</small>
+          </div>
         </div>
-      </div>
-  
-      <!-- Campo Cantidad -->
-      <div>
-        <label for="cantidad">Cantidad:</label>
-        <input id="cantidad" formControlName="cantidad" type="number" />
-        <div *ngIf="cartForm.get('cantidad')?.invalid && cartForm.get('cantidad')?.touched" class="error">
-          La cantidad es obligatoria y debe ser mayor o igual a 1.
-        </div>
-      </div>
-  
-      <!-- Botón de Enviar -->
-      <button type="submit" [disabled]="cartForm.invalid">Enviar</button>
-    </form>
+
+        <!-- Botón de Enviar -->
+        <button type="submit" [disabled]="cartForm.invalid">Enviar</button>
+      </form>
+    </div>
+    <div class="payment">
+      Pa Ga m3
+    </div>
   </div>
-
+</div>
 <app-footer></app-footer>
