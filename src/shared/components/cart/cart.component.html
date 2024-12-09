@@ -1,7 +1,22 @@
-<app-nav></app-nav>ç
-<div class="cart">
-  <h2>{{'cart.cart-presentation'| translate}}</h2>
-  <div class="cart-form">
+<app-nav></app-nav>
+<div class="fondo">
+  <div class="cart">
+    <div class="payment">
+      <h1>Carrito</h1>
+      <div class="product-summary">
+        <h3>Producto: Tarro de Miel</h3>
+        <p>Descripción: Tarro de miel orgánica.</p>
+        <p>Precio: ${{ product.price }}</p>
+
+        <div class="quantity">
+          <button type="button" (click)="decreaseQuantity()">-</button>
+          <span>{{ quantity }}</span>
+          <button type="button" (click)="increaseQuantity()">+</button>
+        </div>
+
+        <p><strong>Total: ${{ totalPrice() }}</strong></p>
+      </div>
+    </div>
     <div class="form-container">
       <form [formGroup]="cartForm" (ngSubmit)="onSubmit()">
         <!-- Campo Cliente -->
@@ -43,9 +58,6 @@
         <!-- Botón de Enviar -->
         <button type="submit" [disabled]="cartForm.invalid">Enviar</button>
       </form>
-    </div>
-    <div class="payment">
-      Pa Ga m3
     </div>
   </div>
 </div>

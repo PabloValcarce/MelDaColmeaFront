@@ -24,6 +24,13 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartComponent {
 
+
+  product = {
+    name: 'Tarro de Miel',
+    price: 10.00
+  };
+  quantity = 1;
+  
   translate: TranslateService = inject(TranslateService);
   cartForm!: FormGroup;
   Toast = Swal.mixin({
@@ -90,4 +97,23 @@ export class CartComponent {
       )
     }
   }
+
+  increaseQuantity() {
+    this.quantity++;
+    this.cartForm.get('cantidad')?.setValue(this.quantity);
+  }
+
+  // Disminuir la cantidad
+  decreaseQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+      this.cartForm.get('cantidad')?.setValue(this.quantity);
+    }
+  }
+
+  // Calcular el precio total
+  totalPrice() {
+    return this.product.price * this.quantity;
+  }
+
 }
