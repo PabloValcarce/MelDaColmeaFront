@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 <div class="fondo">
-  <div class="cart">
+  <div *ngIf="!isFormPage" class="cart">
     <div class="payment">
       <h1>Carrito</h1>
       <div class="product-summary">
@@ -22,4 +22,5 @@
       </div>
     </div>
   </div>
+  <router-outlet></router-outlet>
   <app-footer></app-footer>
