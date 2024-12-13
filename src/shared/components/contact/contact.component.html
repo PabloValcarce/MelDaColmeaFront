@@ -1,77 +1,65 @@
-<app-nav></app-nav>
-<div class="fondo">
-  <div class="container">
-    <div class="box-info">
-      <h1 class="item item1">Contacta con nosotros</h1>
-      <div class="data item item2">
-        <p><i class="fa-solid fa-phone"></i> +34 606&nbsp; 37&nbsp; 47&nbsp;37</p>
-        <p><i class="fa-solid fa-envelope"></i> meldacolmeagmail.com</p>
-        <p><i class="fa-solid fa-location-dot"></i> Becerrea, Lugo, España </p>
-      </div>
-      <div class="links item item3">
-        <a><i class="fa-brands fa-facebook-f"></i></a>
-        <a><i class="fa-brands fa-instagram"></i></a>
-        <a><i class="fa-brands fa-twitter"></i></a>
-        <a><i class="fa-brands fa-linkedin"></i></a>
+<div class="wrapper">
+  <app-nav></app-nav>
+
+  <main class="main-content">
+    <div class="fondo">
+      <div class="container">
+        <div class="box-info">
+          <h1 class="item item1">Contacta con nosotros</h1>
+          <div class="data item item2">
+            <p><i class="fa-solid fa-phone"></i> +34 606&nbsp;37&nbsp;47&nbsp;37</p>
+            <p><i class="fa-solid fa-envelope"></i> meldacolmeagmail.com</p>
+            <p><i class="fa-solid fa-location-dot"></i> Becerrea, Lugo, España</p>
+          </div>
+          <div class="links item item3">
+            <a><i class="fa-brands fa-facebook-f"></i></a>
+            <a><i class="fa-brands fa-instagram"></i></a>
+            <a><i class="fa-brands fa-twitter"></i></a>
+            <a><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <!-- Campo de nombre -->
+          <div class="input-box" [ngClass]="{'input-error': contactForm.get('name')?.invalid && contactForm.get('name')?.touched}">
+            <input type="text" placeholder="Nombre y apellido" formControlName="name" required>
+            <i class="fa-solid fa-user"></i>
+            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error-message">
+              <small>* Este campo es obligatorio</small>
+            </div>
+          </div>
+
+          <!-- Campo de correo -->
+          <div class="input-box" [ngClass]="{'input-error': contactForm.get('email')?.invalid && contactForm.get('email')?.touched}">
+            <input type="email" placeholder="Correo electrónico" formControlName="email" required>
+            <i class="fa-solid fa-envelope"></i>
+            <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error-message">
+              <small>* Este campo es obligatorio</small>
+            </div>
+          </div>
+
+          <!-- Campo de asunto -->
+          <div class="input-box" [ngClass]="{'input-error': contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched}">
+            <input type="text" placeholder="Asunto" formControlName="subject" required>
+            <i class="fa-solid fa-pen-to-square"></i>
+            <div *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched" class="error-message">
+              <small>* Este campo es obligatorio</small>
+            </div>
+          </div>
+
+          <!-- Campo de mensaje -->
+          <div class="input-box" [ngClass]="{'input-error': contactForm.get('message')?.invalid && contactForm.get('message')?.touched}">
+            <textarea placeholder="Escribe tu mensaje..." formControlName="message" required></textarea>
+            <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error-message">
+              <small>* Este campo es obligatorio</small>
+            </div>
+          </div>
+
+          <button type="submit">Enviar mensaje</button>
+        </form>
       </div>
     </div>
+  </main>
 
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-
-      <!-- Campo de nombre -->
-      <div class="input-box"
-        [ngClass]="{'input-error': contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || contactForm.get('name')?.dirty)}">
-        <input type="text" placeholder="Nombre y apellido" formControlName="name" required>
-        <i class="fa-solid fa-user"></i>
-        <div
-          *ngIf="contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || contactForm.get('name')?.dirty)"
-          class="error-message">
-          <small>* Este campo es obligatorio</small>
-        </div>
-      </div>
-
-      <!-- Campo de correo electrónico -->
-      <div class="input-box"
-        [ngClass]="{'input-error': contactForm.get('email')?.invalid && (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)}">
-        <input type="email" placeholder="Correo electrónico" formControlName="email" required>
-        <i class="fa-solid fa-envelope"></i>
-        <div
-          *ngIf="contactForm.get('email')?.hasError('required') && (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)"
-          class="error-message">
-          <small>* Este campo es obligatorio</small>
-        </div>
-        <div
-          *ngIf="contactForm.get('email')?.hasError('email') && (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)"
-          class="error-message">
-          <small>* Por favor ingresa un correo válido</small>
-        </div>
-      </div>
-
-      <!-- Campo de asunto -->
-      <div class="input-box"
-        [ngClass]="{'input-error': contactForm.get('subject')?.invalid && (contactForm.get('subject')?.touched || contactForm.get('subject')?.dirty)}">
-        <input type="text" placeholder="Asunto" formControlName="subject" required>
-        <i class="fa-solid fa-pen-to-square"></i>
-        <div
-          *ngIf="contactForm.get('subject')?.invalid && (contactForm.get('subject')?.touched || contactForm.get('subject')?.dirty)"
-          class="error-message">
-          <small>* Este campo es obligatorio</small>
-        </div>
-      </div>
-
-      <!-- Campo de mensaje -->
-      <div class="input-box"
-        [ngClass]="{'input-error': contactForm.get('message')?.invalid && (contactForm.get('message')?.touched || contactForm.get('message')?.dirty)}">
-        <textarea placeholder="Escribe tu mensaje..." formControlName="message" required></textarea>
-        <div
-          *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.touched || contactForm.get('message')?.dirty)"
-          class="error-message">
-          <small>* Este campo es obligatorio</small>
-        </div>
-      </div>
-
-      <button type="submit">Enviar mensaje</button>
-    </form>
-  </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>

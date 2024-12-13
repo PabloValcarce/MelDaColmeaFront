@@ -35,7 +35,7 @@ export class CartComponent {
   private routeSub!: Subscription;
 
   translate: TranslateService = inject(TranslateService);
-  cartForm!: FormGroup;
+  cart!: FormGroup;
  
   constructor(private route: ActivatedRoute, private router: Router) {}
   ngOnInit() {
@@ -57,14 +57,14 @@ export class CartComponent {
 
   increaseQuantity() {
     this.quantity++;
-    this.cartForm.get('cantidad')?.setValue(this.quantity);
+    this.cart.get('cantidad')?.setValue(this.quantity);
   }
 
   // Disminuir la cantidad
   decreaseQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
-      this.cartForm.get('cantidad')?.setValue(this.quantity);
+      this.cart.get('cantidad')?.setValue(this.quantity);
     }
   }
 

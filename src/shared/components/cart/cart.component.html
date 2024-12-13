@@ -1,26 +1,31 @@
-<app-nav></app-nav>
-<div class="fondo">
-  <div *ngIf="!isFormPage" class="cart">
-    <div class="payment">
-      <h1>Carrito</h1>
-      <div class="product-summary">
-        <h3>Producto: Tarro de Miel</h3>
-        <p>Descripción: Tarro de miel orgánica.</p>
-        <p>Precio: ${{ product.price }}</p>
-        <div class="quantity">
-          <button type="button" (click)="decreaseQuantity()">-</button>
-          <span>{{ quantity }}</span>
-          <button type="button" (click)="increaseQuantity()">+</button>
+<div class="wrapper">
+  <app-nav></app-nav>
+  <main class="main-content">
+    <div class="fondo">
+      <div *ngIf="!isFormPage" class="cart">
+        <div class="payment">
+          <h1>Carrito</h1>
+          <div class="product-summary">
+            <h3>Producto: Tarro de Miel</h3>
+            <p>Descripción: Tarro de miel orgánica.</p>
+            <p>Precio: ${{ product.price }}</p>
+            <div class="quantity">
+              <button type="button" (click)="decreaseQuantity()">-</button>
+              <span>{{ quantity }}</span>
+              <button type="button" (click)="increaseQuantity()">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="total-container">
+          <h1>Resumen</h1>
+          <div class="total">
+            <p><strong>Total: ${{ totalPrice() }}</strong></p>
+            <button class="next" routerLink="/cart/form">Siguiente</button>
+          </div>
         </div>
       </div>
+      <router-outlet></router-outlet>
     </div>
-    <div class="total-container">
-      <h1>Resumen</h1>
-      <div class="total">
-        <p><strong>Total: ${{ totalPrice() }}</strong></p>
-        <button class="next" routerLink="form">Siguiente</button>
-      </div>
-    </div>
-  </div>
-  <router-outlet></router-outlet>
+  </main>
   <app-footer></app-footer>
+</div>
