@@ -68,7 +68,6 @@ export class CartFormComponent {
           Swal.showLoading(); // Mostrar el spinner de carga
         }
       })
-
       this.cartService.insertOrder(formData).subscribe(
         response => {
           console.log(response);
@@ -90,6 +89,4 @@ export class CartFormComponent {
       )
     }
   }
-
-
 }

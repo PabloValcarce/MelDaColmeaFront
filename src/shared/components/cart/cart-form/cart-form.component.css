@@ -127,7 +127,9 @@ form > button:hover {
   font-weight: 900;
   margin-top: 5px;
 }
-
+.swal-toast {
+  z-index: 2000 !important; /* Asegúrate de que el z-index sea mayor que el del nav */
+}
 @keyframes shake {
   0%,
   100% {
