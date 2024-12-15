@@ -7,6 +7,7 @@ import { FormGroup } from '@angular/forms';
 import { CartFormComponent } from './cart-form/cart-form.component';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -25,19 +26,23 @@ import { Subscription } from 'rxjs';
 })
 export class CartComponent {
 
-
   product = {
     name: 'Tarro de Miel',
     price: 10.00
   };
-  quantity = 1;
+  quantity: number = 1;
   isFormPage = false;
   private routeSub!: Subscription;
 
   translate: TranslateService = inject(TranslateService);
   cart!: FormGroup;
- 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private cartService: CartService
+  ) { }
+  
   ngOnInit() {
     // Suscribirse a los cambios de la URL para detectar cuándo estamos en la ruta /cart/form
     this.routeSub = this.router.events.subscribe(event => {
@@ -57,22 +62,19 @@ export class CartComponent {
 
   increaseQuantity() {
     this.quantity++;
-    this.cart.get('cantidad')?.setValue(this.quantity);
+    this.cartService.setQuantity(this.quantity); // Actualizar cantidad en el servicio
   }
 
-  // Disminuir la cantidad
   decreaseQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
-      this.cart.get('cantidad')?.setValue(this.quantity);
+      this.cartService.setQuantity(this.quantity); // Actualizar cantidad en el servicio
     }
   }
 
-  // Calcular el precio total
   totalPrice() {
-    return this.product.price * this.quantity;
+    return this.quantity * this.product.price;
   }
 
- 
 
 }

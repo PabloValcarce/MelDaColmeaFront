@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavComponent } from '../../nav/nav.component';
 import { FooterComponent } from '../../footer/footer.component';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CartService } from '../../../services/cart.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cart-form',
@@ -20,7 +22,8 @@ import { CartService } from '../../../services/cart.service';
 })
 export class CartFormComponent {
 
-  
+  quantity: number = 1;
+
   Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -35,6 +38,7 @@ export class CartFormComponent {
   cartForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
+    private router:Router,
     private cartService: CartService,
   ) { }
 
@@ -42,23 +46,30 @@ export class CartFormComponent {
   ngOnInit(): void {
     this.cartForm = this.fb.group({
       nombre: ['', Validators.required],
+      cantidad: [0, Validators.required],
+      email: ['', [Validators.required, Validators.email]], // Valida el formato de correo electrónico
+      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{9}$/)]], // Valida que sean 9 dígitos
       direccion: ['', Validators.required],
       cp: ['', Validators.required],
       localidad: ['', Validators.required],
       provincia: ['', Validators.required],
-      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{9}$/)]], // Valida que sean 9 dígitos
       cif: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]], // Valida el formato de correo electrónico
+    });
+    // Suscribirse al observable para recibir el valor de quantity
+    this.cartService.quantity$.subscribe(quantity => {
+      // Actualizar el campo cantidad del formulario cuando quantity cambie
+      this.cartForm.patchValue({ cantidad: quantity });
     });
   }
-  
+
   // Método para enviar el formulario
   onSubmit(): void {
+    console.log(this.cartForm);
     if (this.cartForm.valid) {
 
       const formData = this.cartForm.value;
 
-      const loading = Swal.fire({
+      Swal.fire({
         title: 'Procesando...',
         text: 'Estamos procesando tu pedido, por favor espera.',
         icon: 'info',
@@ -72,12 +83,15 @@ export class CartFormComponent {
         response => {
           console.log(response);
 
-          this.Toast.fire({
+          Swal.fire({
+            title: "Pedido realizado con éxito",
             icon: "success",
-            title: "Pedido realizado con éxito"
-          })
-          this.cartForm.reset();
+            allowOutsideClick: false,
+          }).then((result)=>{
+            this.cartForm.reset();
+            this.router.navigate(['/cart']);
 
+          })
         },
         error => {
           this.Toast.fire({
