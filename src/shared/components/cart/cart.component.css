@@ -34,40 +34,103 @@ html, body {
   min-height: calc(100vh - 250px);
   height: auto;
 }
-.payment {
-  width: 80%;
-  height: 400px;
-  border: 1px solid #ddd;
-  padding: 50px;
-  color: var(--amarillo);
-
-}
-
-.product-summary {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.quantity {
+.cart-item {
   display: flex;
-  justify-content: space-between;
-  width: 120px;
-  margin: 10px 0;
+  background-color: rgba(58, 54, 43, 0.15);  /* opacidad del 50% */
+  margin: auto;
+  border-bottom: solid 1px #ddd;
+  padding: 10px;
 }
 
-.quantity button {
-  padding: 5px 10px;
+.img-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container, .title-price {
   cursor: pointer;
-  background: var(--marron);
-  color: var(--amarillo);
-  border: none;
-  border-radius: 5px;
 }
 
-.quantity button:hover {
-  background: darken(var(--marron), 10%);
+.img-product {
+  max-width: 150px;
+  min-width: 150px;
+  max-height: 150px;
+  min-height: 150px;
+  border-radius: 5%;
+  
+}
+
+.item-details-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.title-price {
+  font-family: Poppins, "Helvetica Neue", sans-serif;
+  width: 20vw;
+  padding-left: 20px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+}
+.unit-price {
+  color: black;
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.units-container {
+  display: flex;
+  justify-content: center;
+}
+
+.item-amount {
+  background-color: rgba(58, 54, 43, 0.25)  /* opacidad del 50% */
+  ;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  font-size: large;
+}
+
+.item-btn {
+  background-color: transparent;
+  border: none;
+  font-size: x-large;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.price-container {
+  text-align: right;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--amarillo);
+}
+
+.delete-container {
+  align-self: start;
+}
+
+.delete-button {
+  color: red;
+  font-size: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 .total-container{
   border: 1px solid #ddd;

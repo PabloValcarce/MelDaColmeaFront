@@ -2,17 +2,29 @@
   <app-nav></app-nav>
   <main class="main-content">
     <div class="fondo">
-      <div *ngIf="!isFormPage" class="cart">
+      <div class="cart">
         <div class="payment">
           <h1>Carrito</h1>
-          <div class="product-summary">
-            <h3>Producto: Tarro de Miel</h3>
-            <p>Descripción: Tarro de miel orgánica.</p>
-            <p>Precio: ${{ product.price }}</p>
-            <div class="quantity">
-              <button type="button" (click)="decreaseQuantity()">-</button>
-              <span>{{ quantity }}</span>
-              <button type="button" (click)="increaseQuantity()">+</button>
+          <div class="cart-item">
+            <div class="img-container">
+              <img class="img-product" src="./../../../assets/bote150.jpg" alt="Producto">
+            </div>
+            <div class="item-details-container">
+              <div class="title-price">
+                <div class="title">Nombre del Producto</div>
+                <div class="unit-price">15.00 €</div>
+              </div>
+              <div class="units-container">
+                <button (click)="decreaseQuantity()" class="item-btn">-</button>
+                <div class="item-amount">{{ quantity }}</div>
+                <button (click)="increaseQuantity()" class="item-btn">+</button>
+              </div>              
+              <div class="price-container">
+                <span>Total: {{ totalPrice() | number: '1.2-2' }} €</span>
+              </div>              
+              <div class="delete-container">
+                <button class="delete-button">&times;</button>
+              </div>
             </div>
           </div>
         </div>

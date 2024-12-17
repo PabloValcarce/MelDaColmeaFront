@@ -42,17 +42,6 @@ export class CartComponent {
     private router: Router,
     private cartService: CartService
   ) { }
-  
-  ngOnInit() {
-    // Suscribirse a los cambios de la URL para detectar cuándo estamos en la ruta /cart/form
-    this.routeSub = this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        // Si la ruta es '/cart/form', ocultamos el contenido del padre
-        this.isFormPage = this.router.url.includes('cart/form');
-      }
-    });
-  }
-
   ngOnDestroy() {
     // Limpiar la suscripción cuando el componente se destruya
     if (this.routeSub) {
