@@ -3,7 +3,7 @@
   <main class="main-content">
     <div class="fondo">
       <div class="cart">
-        <div class="payment">
+        <div class="cart-item-container">
           <h1>Carrito</h1>
           <div class="cart-item">
             <div class="img-container">
@@ -11,33 +11,86 @@
             </div>
             <div class="item-details-container">
               <div class="title-price">
-                <div class="title">Nombre del Producto</div>
-                <div class="unit-price">15.00 €</div>
+                <div class="title">{{product.name}}</div>
+                <div class="unit-price">{{product.price}} €</div>
               </div>
               <div class="units-container">
                 <button (click)="decreaseQuantity()" class="item-btn">-</button>
                 <div class="item-amount">{{ quantity }}</div>
                 <button (click)="increaseQuantity()" class="item-btn">+</button>
-              </div>              
-              <div class="price-container">
-                <span>Total: {{ totalPrice() | number: '1.2-2' }} €</span>
-              </div>              
-              <div class="delete-container">
-                <button class="delete-button">&times;</button>
               </div>
             </div>
           </div>
-        </div>
-        <div class="total-container">
-          <h1>Resumen</h1>
-          <div class="total">
-            <p><strong>Total: ${{ totalPrice() }}</strong></p>
-            <button class="next" routerLink="form">Siguiente</button>
+          <div class="total-amount">
+            <div class="total-left">
+              <p class="total-title">Total del Carrito</p>
+              <p class="units">{{quantity}} unidades</p>
+            </div>
+            <div class="total-right">
+              <p class="total">{{ totalPrice() | number: '1.2-2' }} €</p>
+            </div>
           </div>
         </div>
+        <div class="order-form">
+          <div class="form-title">Información de Pedido</div>
+          <form [formGroup]="cartForm" (ngSubmit)="onSubmit()">
+            <div class="info-form">
+
+              <!-- Campo Nombre -->
+              <div class="input-box"
+                [ngClass]="{'input-error': cartForm.get('nombre')?.invalid && (cartForm.get('nombre')?.touched || cartForm.get('nombre')?.dirty)}">
+                <input id="nombre" formControlName="nombre" type="text" placeholder="Nombre" required />
+                <i class="fa-solid fa-user"></i>
+                <div
+                  *ngIf="cartForm.get('nombre')?.invalid && (cartForm.get('nombre')?.touched || cartForm.get('nombre')?.dirty)"
+                  class="error-message">
+                  <small>* Este campo es obligatorio</small>
+                </div>
+              </div>
+
+              <!-- Campo Dirección -->
+              <div class="input-box"
+                [ngClass]="{'input-error': cartForm.get('direccion')?.invalid && (cartForm.get('direccion')?.touched || cartForm.get('direccion')?.dirty)}">
+                <input id="direccion" formControlName="direccion" type="text" placeholder="Dirección" required />
+                <i class="fa-solid fa-map-marker-alt"></i>
+                <div
+                  *ngIf="cartForm.get('direccion')?.invalid && (cartForm.get('direccion')?.touched || cartForm.get('direccion')?.dirty)"
+                  class="error-message">
+                  <small>* Este campo es obligatorio</small>
+                </div>
+              </div>
+
+              <!-- Campo Código Postal -->
+              <div class="input-box"
+                [ngClass]="{'input-error': cartForm.get('cp')?.invalid && (cartForm.get('cp')?.touched || cartForm.get('cp')?.dirty)}">
+                <input id="cp" formControlName="cp" type="text" placeholder="Cp" required />
+                <i class="fa-solid fa-envelope"></i>
+                <div *ngIf="cartForm.get('cp')?.invalid && (cartForm.get('cp')?.touched || cartForm.get('cp')?.dirty)"
+                  class="error-message">
+                  <small>* Este campo es obligatorio</small>
+                </div>
+              </div>
+
+              <!-- Campo Teléfono -->
+              <div class="input-box"
+                [ngClass]="{'input-error': cartForm.get('telefono')?.invalid && (cartForm.get('telefono')?.touched || cartForm.get('telefono')?.dirty)}">
+                <input id="telefono" formControlName="telefono" type="text" placeholder="Teléfono" required />
+                <i class="fa-solid fa-phone"></i>
+                <div
+                  *ngIf="cartForm.get('telefono')?.invalid && (cartForm.get('telefono')?.touched || cartForm.get('telefono')?.dirty)"
+                  class="error-message">
+                  <small>* Este campo es obligatorio</small>
+                </div>
+              </div>
+              <div class="form-button">
+                <button type="button" class="pay-button">Pagar</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <router-outlet></router-outlet>
     </div>
   </main>
+  <router-outlet></router-outlet>
   <app-footer></app-footer>
 </div>

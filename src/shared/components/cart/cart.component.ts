@@ -3,11 +3,10 @@ import { Component, inject } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 import { FooterComponent } from '../footer/footer.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { FormGroup } from '@angular/forms';
-import { CartFormComponent } from './cart-form/cart-form.component';
-import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {  Router, RouterModule } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cart',
@@ -17,8 +16,8 @@ import { CartService } from '../../services/cart.service';
     RouterModule,
     NavComponent,
     FooterComponent,
-    CartFormComponent,
-    TranslateModule
+    TranslateModule,
+    ReactiveFormsModule
   ],
   providers: [TranslateService],
   templateUrl: './cart.component.html',
@@ -31,33 +30,87 @@ export class CartComponent {
     price: 10.00
   };
   quantity: number = 1;
-  isFormPage = false;
-  private routeSub!: Subscription;
-
   translate: TranslateService = inject(TranslateService);
-  cart!: FormGroup;
+
+  Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 4000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  cartForm!: FormGroup;
 
   constructor(
-    private route: ActivatedRoute,
+    private fb: FormBuilder,
     private router: Router,
     private cartService: CartService
   ) { }
-  ngOnDestroy() {
-    // Limpiar la suscripción cuando el componente se destruya
-    if (this.routeSub) {
-      this.routeSub.unsubscribe();
-    }
+  
+  ngOnInit(): void {
+    this.cartForm = this.fb.group({
+      nombre: ['', Validators.required],
+      cantidad: [0, Validators.required],
+      telefono: ['', [Validators.required, Validators.pattern(/^[0-9]{9}$/)]], // Valida que sean 9 dígitos
+      direccion: ['', Validators.required],
+      cp: ['', Validators.required],
+    });
+   
+    // Suscribirse al observable para recibir el valor de quantity
   }
-
+    // Método para enviar el formulario
+    onSubmit(): void {
+      this.cartForm.patchValue({ cantidad: this.quantity });
+      console.log(this.cartForm);
+      if (this.cartForm.valid) {
+  
+        const formData = this.cartForm.value;
+  
+        Swal.fire({
+          title: 'Procesando...',
+          text: 'Estamos procesando tu pedido, por favor espera.',
+          icon: 'info',
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          didOpen: () => {
+            Swal.showLoading(); // Mostrar el spinner de carga
+          }
+        })
+        this.cartService.insertOrder(formData).subscribe(
+          response => {
+            console.log(response);
+  
+            Swal.fire({
+              title: "Pedido realizado con éxito",
+              icon: "success",
+              allowOutsideClick: false,
+            }).then((result)=>{
+              this.cartForm.reset();
+              this.router.navigate(['/cart']);
+  
+            })
+          },
+          error => {
+            this.Toast.fire({
+              icon: "error",
+              title: "Error al realizar el pedido"
+            })
+            console.error('Error al realizar el pedido', error);
+          }
+        )
+      }
+    }
   increaseQuantity() {
     this.quantity++;
-    this.cartService.setQuantity(this.quantity); // Actualizar cantidad en el servicio
   }
 
   decreaseQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
-      this.cartService.setQuantity(this.quantity); // Actualizar cantidad en el servicio
     }
   }
 
